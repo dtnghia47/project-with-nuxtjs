@@ -14,11 +14,11 @@ version 2:
 version 3:
     - finish permission
     - CRUD template
-    - strorage images
-version 4:
-    - support SEO
-    - support share
-    - create some feature support campaign
+    - strorage images  
+version 4:  
+    - support SEO  
+    - support share  
+    - create some feature support campaign  
 
 version final:
     - Improve quality image
