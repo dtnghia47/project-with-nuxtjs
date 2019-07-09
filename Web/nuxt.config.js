@@ -14,6 +14,12 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
+    script: [
+      {
+        src:
+          'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-alpha1/html2canvas.min.js'
+      }
+    ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
@@ -51,6 +57,45 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      if (ctx.dev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+          options: {
+            fix: true
+          }
+        })
+      }
+    }
+  },
+  router: {
+    extendRoutes(routes, resolve) {
+      // console.log(routes)
+      // let index = routes.findIndex(route => route.name === 'demo-router')
+      // routes[index] = {
+      //   ...routes[index],
+      //   components: {
+      //     default: routes[index].component,
+      //     top: resolve(__dirname, 'components/mainTop.vue')
+      //   },
+      //   chunkNames: {
+      //     top: 'components/mainTop'
+      //   }
+      // }
+    }
+  },
+  async asyncData({ req, res }) {
+    // Please check if you are on the server side before
+    // using req and res
+    console.log(req, res)
+    debugger
+    if (process.server) {
+      return { host: req.headers.host }
+    }
+
+    return {}
   }
 }
