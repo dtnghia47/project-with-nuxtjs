@@ -23,3 +23,5 @@ version 4:
 version final:  
     - Improve quality image  
     - Calculator pixel, mapping images(custom)  
+- [ ] Mercury
+- [x] Venus
