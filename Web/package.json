@@ -23,7 +23,7 @@
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
     "lodash": "^4.17.11",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.15.8"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
